@@ -1,9 +1,12 @@
-import { readFile } from 'node:fs/promises';
+/**
+ * 简化版入口文件 - 使用内存存储，无需外部依赖
+ * 使用 simple-server.ts 替代完整的 PostgreSQL + Redis 服务器
+ */
 
+import { readFile } from 'node:fs/promises';
 import { Hono } from 'hono';
 import { logger } from 'hono/logger';
-import apiApp from './server/app';
-import { registerInternalCronJobs } from './server/lib/jobs/internalCronScheduler';
+import simpleApp from './server/simple-server';
 
 const indexHtmlUrl = new URL('../dist/index.html', import.meta.url);
 const fileRequestPattern = /\/[^/?]+\.[^/]+$/;
@@ -34,17 +37,14 @@ export function createRootApp(options: RootAppOptions = {}) {
 
   if (enableLogger) {
     app.use('/api/*', logger());
-    app.use('/internal/*', logger());
   }
 
-  registerInternalCronJobs({ enabled: isProd });
+  // 使用简化版服务器
+  app.route('/', simpleApp);
 
-  app.route('/', apiApp);
-
-  // 生产环境中的文件请求，如果请求的是 API 或内部接口，则返回 404
-  // 否则返回 index.html，并由前端路由处理
+  // 处理前端路由 - 返回 index.html
   app.notFound(async (c) => {
-    if (c.req.path.startsWith('/api') || c.req.path.startsWith('/internal/')) {
+    if (c.req.path.startsWith('/api')) {
       return Response.json(
         {
           success: false,
