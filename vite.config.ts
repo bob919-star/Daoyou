@@ -27,6 +27,7 @@ export default defineConfig(({ command, mode }) => {
 
   if (mode === 'client') {
     return {
+      base: '/Daoyou/',
       resolve: { alias },
       plugins: [react(), tailwindcss()],
       build: {
