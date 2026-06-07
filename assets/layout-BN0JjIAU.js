@@ -1,0 +1,1 @@
+import{H as e,Y as t}from"./index-DKUUmdah.js";import{t as n}from"./loaders-xBV3XNBk.js";import{n as r}from"./authContext-VNaJVx-c.js";var i=e(),a=n;function o(){return(0,i.jsx)(r,{children:(0,i.jsx)(t,{})})}export{o as default,a as loader};

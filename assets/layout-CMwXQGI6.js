@@ -1,0 +1,1 @@
+import{t as e}from"./index-DKUUmdah.js";import{i as t}from"./loaders-xBV3XNBk.js";export{e as default,t as loader};

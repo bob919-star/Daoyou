@@ -1,0 +1,1 @@
+import{d as e}from"./constants-CU_cHpCk.js";function t(t){let n=e.indexOf(t);return n<0||n>=e.length-1?null:e[n+1]}function n(e){switch(e){case`筑基`:return`筑基丹`;case`金丹`:return`降尘丹`;case`元婴`:return`护婴丹`;case`化神`:return`叩神丹`;case`炼虚`:return`洞虚丹`;case`合体`:return`合真丹`;case`大乘`:return`证道丹`;case`渡劫`:return`应劫丹`;default:return e?`${e}破境丹`:`破境丹`}}export{t as n,n as t};

@@ -1,0 +1,1 @@
+function e(e,t){return{kind:e,item:t}}var t={disableConsumableBetBattle:!1,disableConsumableAuctionListing:!1},n={consumableBetBattle:`消耗品赌战已临时关闭，待系统调整完成后恢复。`,consumableAuctionListing:`拍卖行消耗品寄售已临时关闭，待系统调整完成后恢复。`};export{t as n,e as r,n as t};
